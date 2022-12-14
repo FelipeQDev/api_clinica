@@ -82,7 +82,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': "webclinica",
         'USER':"root",
-        'PASSWORD':"root",
+        'PASSWORD':"",
     }
 }
 
