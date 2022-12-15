@@ -1,12 +1,13 @@
 from django.db import models
-from rest_framework import serializer
+from rest_framework import serializers
 # Create your models here.
 
 #Paciente
 class Paciente(models.Model):
-    id = models.IntegerField(primary_key=True)
     nombre = models.CharField(max_length=40)
     apellido = models.CharField(max_length=40)
+    direccion = models.CharField(max_length=40)
+    ciudad = models.CharField(max_length=20)
     edad_paciente = models.IntegerField()
     
     class Meta:
@@ -16,15 +17,16 @@ class PacienteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Paciente
         fields = "__all__"
+        
 #Doctor
 class Doctor(models.Model):
-    id = models.IntegerField(primary_key=True)
     nombre = models.CharField(max_length=40)
     apellido = models.CharField(max_length=40)
     especialidad = models.CharField(max_length=25)
+    url_imagen = models.CharField(max_length=1000)
     evaluacion_doc = models.IntegerField()
     horario_atencion = models.DateTimeField()
-    disponible= models.BooleanField()
+    disponibilidad= models.BooleanField()
     
     class Meta:
         db_table = "doctor"
@@ -33,18 +35,34 @@ class DoctorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Doctor
         fields = "__all__"
+        
+#Ficha
 
-#Horas
-class HorasMedicas(models.Model):
-    fecha_horaMed = models.DateTimeField()
-    valor_hora = models.IntegerField()
+class Ficha_Paciente(models.Model):
+    motivo = models.CharField(max_length=40)
+    prevision = models.CharField(max_length=15)
+    horario = models.TimeField()
     paciente = models.ForeignKey(Paciente, on_delete=models.CASCADE)
-    doctor_encargado = models.ForeignKey(Doctor, on_delete=models.CASCADE)
+    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)
+    
+    class Meta:
+        db_table = "ficha_paciente"
+        
+class Ficha_Serializer(serializers.ModelSerializer):
+    class Meta:
+        model = Ficha_Paciente
+        fields = "__all__"
+        
+        
+#Detalle Horas
+class Detalle(models.Model):
+    fecha = models.DateTimeField()
+    precio_total = models.IntegerField()
 
     class Meta:
-        db_table = "horas_medicos"
+        db_table = "detalle"
 
-class HorasSerializer(serializers.ModelSerializer):
+class DetalleSerializer(serializers.ModelSerializer):
     class Meta:
-        model = HorasMedicas
+        model = Detalle
         fields = "__all__"
