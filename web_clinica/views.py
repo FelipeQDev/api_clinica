@@ -29,3 +29,7 @@ def doctores(request):
     doctor = Doctor.objects.all()
     data = {"doctor": doctor}
     return render(request, "doctores.html", data)
+
+def horas(request):
+    horas = Ficha_Atencion.objects.all()
+    return render(request, "horas.html", {"horas":horas})

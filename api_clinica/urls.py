@@ -1,24 +1,21 @@
 from django.contrib import admin
 from django.urls import path
 from api import views as apiViews
-from web_clinica import views as webViews
+from web_clinica import views as v
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', webViews.index),
-    
-    
-    path("pacientes/", apiViews.PacientesVista.as_view(), name="verPacientes"),
-    path("pacientes/ingresarPaciente", apiViews.PacientesVista.as_view(), name="ingresarPaciente"),
-    path("pacientes/<int:pk>", apiViews.PacienteDetalle.as_view()),
-    
-    
-    
-    path("doctores/", apiViews.DoctoresVista.as_view()),
-    path("doctores/<int:pk>", apiViews.DoctoresDetalle.as_view()),
+    path('',v.index, name="index"),
+    path("pacientes/", v.pacientes, name="pacientes"),
+    path("doctores/", v.doctores, name="doctores"),
+    path("horas/", v.horas, name="horas"),
     
     
     
-    
-    path("horas/", apiViews.Ficha_atencionVista.as_view()),
+    path("api/paciente/", apiViews.PacientesVista.as_view(), name="pacienteMixins"),
+    path("api/paciente/<int:pk>", apiViews.PacienteDetalle.as_view(), name="pacientePKmixins"),
+    path("api/doctor/", apiViews.DoctoresVista.as_view(), name="doctorMixins"),
+    path("api/doctor/<int:pk>", apiViews.DoctoresDetalle.as_view(), name="doctorPKmixins"),
+    path("api/hora/", apiViews.Ficha_atencionVista.as_view(), name="horaMixins"),
+    path("api/hora/<int:pk>", apiViews.Ficha_Detalle.as_view(), name="horaPKMixins"),
 ]
