@@ -5,15 +5,20 @@ from web_clinica import views as webViews
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', webViews.index, name="index"),
+    path('', webViews.index),
     
     
-    path("paciente/", apiViews.PacientesVista.as_view(), name="pacientes"),
-    path("paciente/<int:pk>", apiViews.PacienteDetalle.as_view()),
+    path("pacientes/", apiViews.PacientesVista.as_view(), name="verPacientes"),
+    path("pacientes/ingresarPaciente", apiViews.PacientesVista.as_view(), name="ingresarPaciente"),
+    path("pacientes/<int:pk>", apiViews.PacienteDetalle.as_view()),
     
     
     
-    path("doctores/", apiViews.DoctoresVista.as_view(), name="doctores"),
+    path("doctores/", apiViews.DoctoresVista.as_view()),
+    path("doctores/<int:pk>", apiViews.DoctoresDetalle.as_view()),
     
-    path("horas/", apiViews.Ficha_atencionVista.as_view(), name="horas"),
+    
+    
+    
+    path("horas/", apiViews.Ficha_atencionVista.as_view()),
 ]

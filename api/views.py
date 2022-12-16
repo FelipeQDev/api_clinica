@@ -10,10 +10,10 @@ from api.models import*
 class PacientesVista(mixins.ListModelMixin,  mixins.CreateModelMixin, generics.GenericAPIView):
     queryset = Paciente.objects.all()
     serializer_class = PacienteSerializer
-    
+    #Llamada a la BD los datos de la tabla Paciente
     def get(self, request):
         return self.list(request)
-    #Llamada a la BD los datos de la tabla Paciente
+    
     def post(self, request):
         return self.create(request)
     
