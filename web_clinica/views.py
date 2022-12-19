@@ -16,6 +16,6 @@ def doctores(request):
     doctores = Doctor.objects.all()
     return render(request, "doctores.html", {"doctores": doctores})
 
-def horas(request):
-    horas = Ficha_Atencion.objects.all()
-    return render(request, "horas.html", {"horas":horas})
+def fichas(request):
+    fichas = Ficha_Atencion.objects.all()
+    return render(request, "fichas.html", {"fichas":fichas})

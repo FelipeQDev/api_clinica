@@ -1,61 +1,58 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      text="text/css"
-      rel="stylesheet"
-      href="{% static 'css/style.css' %}"
-    />
-    {% include "header.html" %}
-    <title>Doctores</title>
-  </head>
-  <body>
-    {% include 'navigation.html' %}
-    <div class="container">
-      <div class="row">
-        <div class="col-9" style="width: 100%">
-          <div class="row">
-            {% for d in doctores %}
-            <div class="col-md-4">
-              <h4 class="text-center"><strong>Doctor </strong></h4>
-              <div class="profile-card-6">
-                <img
-                  src="{{d.url_imagen}}"
-                  style="width: 400px; height: 500px"
-                  class="img img-responsive"
-                />
-                <div class="profile-name">
-                  {{d.nombre}} <br />{{d.apellido}}
-                </div>
-                <div class="profile-position">{{d.especialidad}}</div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  {% include "header.html" %}
+  <link text="text/css" rel="stylesheet" href="{% static 'css/styleNav.css' %}" />
+  <link text="text/css" rel="stylesheet" href="{% static 'css/styleCard.css' %}" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <title>Doctores</title>
+</head>
+
+<body>
+  {% include 'navigation.html' %}
+  <div class="container">
+    <div class="row">
+      <div class="col-9" style="width: 100%">
+        <div class="row">
+          {% for d in doctores %}
+          <div class="col-md-4">
+            <h4 class="text-center"><strong>Doctor </strong></h4>
+            <div class="profile-card-6">
+              <img src="{{d.url_imagen}}" style="width: 400px; height: 500px" class="img img-responsive" />
+              <div class="profile-name">
+                {{d.nombre}} <br />{{d.apellido}}
+              </div>
+              <div class="profile-position">{{d.especialidad}}</div>
+              <div class="profile-overview">
                 <div class="profile-overview">
-                  <div class="profile-overview">
-                    <div class="row text-center">
-                      <div class="col-xs-4">
-                          <p>Evaluación</p>
-                          <h3 style="color: lightgreen;">{{d.evaluacion_doc}}</h3>
-                      </div>
-                      <div class="col-xs-4">
-                          <p>Horario de Atencion</p>
-                          <h3>{{d.horario_atencion}}</h3>
-                      </div>
-                      <div class="col-xs-4">
-                          <p>Disponibilidad</p>
-                          <h3>{{d.disponibilidad}}</h3>
-                      </div>
+                  <div class="row text-center">
+                    <div class="col-xs-4">
+                      <p>Evaluación</p>
+                      <h3 style="color: lightgreen">{{d.evaluacion_doc}}</h3>
+                    </div>
+                    <div class="col-xs-4">
+                      <p>Horario de Atencion</p>
+                      <h3>{{d.horario_atencion}}</h3>
+                    </div>
+                    <div class="col-xs-4">
+                      <p>Disponibilidad</p>
+                      <h3>{{d.disponibilidad}}</h3>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            {% endfor %}
           </div>
+          {% endfor %}
         </div>
       </div>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>
