@@ -4,6 +4,11 @@
 }
 body {
 	background: #f1fbff;
+	
+}
+
+#navbar{
+	background-color: #eff4ff;
 }
 .section-padding {
 	padding: 100px 0;

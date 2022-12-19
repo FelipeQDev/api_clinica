@@ -53,7 +53,7 @@ a:focus {
 }
 
 body {
-    background-color: #F1F2F3;
+    background-image: url(../img/Bg.webp) !important;
 }
 
 .container-fluid,
