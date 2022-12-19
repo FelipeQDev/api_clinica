@@ -1,28 +1,42 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Clinica</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'index' %}"> <b> Inicio</b></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'pacienteMixins' %}">Pacientes</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'doctorMixins' %}">Doctores</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'horaMixins' %}">Agendar una Hora</a>
-                </li>
-            </ul>
-            </li>
-            </ul>
-        </div>
+{% load static %}
+<link text="text/css" rel="stylesheet" href="{% static 'css/style2.css' %}" />
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'index' %}">Clinica</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"></a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Ingreso
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'pacienteMixins' %}">Paciente</a></li>
+            <li><a class="dropdown-item" href="{% url 'doctorMixins' %}">Doctor</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="horaMixins">Hora</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Información
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'pacientes' %}">Pacientes</a></li>
+            <li><a class="dropdown-item" href="{% url 'doctores' %}">Doctores</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="{% url 'horas' %}">Horas</a></li>
+          </ul>
+        </li>
+      </ul>
     </div>
+  </div>
 </nav>
