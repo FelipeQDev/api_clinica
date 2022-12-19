@@ -10,7 +10,7 @@ urlpatterns = [
     #tablas
     path("pacientes/", v.pacientes, name="pacientes"),
     path("doctores/", v.doctores, name="doctores"),
-    path("horas/", v.horas, name="horas"),
+    path("fichas/", v.fichas, name="fichas"),
     
     
     #mixins

@@ -6,8 +6,10 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link text="text/css" rel="stylesheet" href="{% static 'css/style.css' %}" />
   {% include "header.html" %}
+  <link text="text/css" rel="stylesheet" href="{% static 'css/styleNav.css' %}" />
+  <link text="text/css" rel="stylesheet" href="{% static 'css/styleCard.css' %}" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
   <title>Doctores</title>
 </head>
 
@@ -21,17 +23,28 @@
           <div class="col-md-4">
             <h4 class="text-center"><strong>Doctor </strong></h4>
             <div class="profile-card-6">
-              <img src="{{d.url_imagen}}" style="width: 400px; height: 500px" class="img img-responsive" />
+              <img src="{{d.url_imagen}}" style="width: 400px; height: 500px;" class="img img-responsive " />
               <div class="profile-name">
                 {{d.nombre}} <br />{{d.apellido}}
               </div>
-              <div class="profile-position">{{d.especialidad}}</div>
+              <div class="profile-position">
+                {{d.especialidad}}
+              </div>
               <div class="profile-overview">
                 <div class="profile-overview">
                   <div class="row text-center">
                     <div class="col-xs-4">
                       <p>Evaluación</p>
+
+                      {% if d.evaluacion_doc >= 6.0 %}
                       <h3 style="color: lightgreen;">{{d.evaluacion_doc}}</h3>
+                      {% elif d.evaluacion_doc >= 4.0 %}
+                      <h3 style="color: rgb(237, 250, 122);">{{d.evaluacion_doc}}</h3>
+                      {% elif d.evaluacion_doc <= 3.9 %}
+                      <h3 style="color: red;">{{d.evaluacion_doc}}</h3>
+                      {% endif %}
+
+
                     </div>
                     <div class="col-xs-4">
                       <p>Horario de Atencion</p>
@@ -39,13 +52,11 @@
                     </div>
                     <div class="col-xs-4">
                       <p>Disponibilidad</p>
-                      
-                      {% if d.disponibilidad == True %}
-                      <h3>Disponible</h3>
+                      {% if d.disponibilidad == True %} <h3>Disponible</h3>
                       {% else %}
                       <h3>No Disponible</h3>
                       {% endif %}
-                        
+
                     </div>
                   </div>
                 </div>

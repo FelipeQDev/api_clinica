@@ -1,3 +1,7 @@
+body {
+    background-image: url(../img/Bg.webp) !important;
+}
+
 .demo{ font-family: 'Noto Sans', sans-serif; }
 .panel{
     background: linear-gradient(to right, #2980b9, #2c3e50);

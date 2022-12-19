@@ -7,7 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% include "header.html" %}
-    <link text="text/css" rel="stylesheet" href="{% static 'css/style3.css' %}">
+    <link text="text/css" rel="stylesheet" href="{% static 'css/styleNav.css' %}" />
+    <link text="text/css" rel="stylesheet" href="{% static 'css/styleTable.css' %}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <title>Pacientes</title>
 </head>
@@ -42,7 +43,7 @@
                                 {% for p in pacientes %}
                                 <tr>
                                     <td>{{p.id}}</td>
-                                    <td>{{p.nombre}}}</td>
+                                    <td>{{p.nombre}}</td>
                                     <td>{{p.apellido}}</td>
                                     <td>{{p.direccion}}</td>
                                     <td>{{p.ciudad}}</td>
