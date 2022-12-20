@@ -106,8 +106,10 @@
         color: red;
     }
 </style>
+{% load static %}
 <link rel="stylesheet" href="/api_clinica/static/css/framework.css">
-<a href="/" id="nav1">Clinica</a>
+
+<a href="/" id="nav1"><img src="{%static '/img/papas-fritas.png'%}" width="50%"height="40">Clinica</a>
 <a href="/api/doctor/" id="nav">Doctores</a>
 <a href="/api/paciente/" id="nav">Pacientes</a>
 <a href="/api/hora/" id="nav">Horas</a>

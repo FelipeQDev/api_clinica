@@ -70,7 +70,7 @@ img{
     left: 10px;
     font-size: 25px;
     font-weight: bold;
-    color: rgb(24, 23, 23);
+    color: rgb(0, 174, 255);
     padding: 15px 20px;
     background: linear-gradient(140deg, rgba(0, 0, 0, 0.4) 50%, rgba(255, 255, 0, 0) 50%);
     transition: all 0.15s linear;

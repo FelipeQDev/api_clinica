@@ -21,14 +21,11 @@
         <div class="row">
           {% for d in doctores %}
           <div class="col-md-4">
-            <h4 class="text-center"><strong>Doctor </strong></h4>
+            <h4 class="text-center"><strong>{{d.especialidad}} </strong></h4>
             <div class="profile-card-6">
               <img src="{{d.url_imagen}}" style="width: 400px; height: 500px;" class="img img-responsive " />
               <div class="profile-name">
                 {{d.nombre}} <br />{{d.apellido}}
-              </div>
-              <div class="profile-position">
-                {{d.especialidad}}
               </div>
               <div class="profile-overview">
                 <div class="profile-overview">
