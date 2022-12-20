@@ -18,6 +18,7 @@ class PacientesVista(mixins.ListModelMixin,  mixins.CreateModelMixin, generics.G
     def post(self, request):
         return self.create(request)
     
+    
 class PacienteDetalle(mixins.RetrieveModelMixin, mixins.DestroyModelMixin, mixins.UpdateModelMixin, generics.GenericAPIView):
     queryset = Paciente.objects.all()
     serializer_class = PacienteSerializer
@@ -34,14 +35,13 @@ class PacienteDetalle(mixins.RetrieveModelMixin, mixins.DestroyModelMixin, mixin
     
     
 # Doctores
+
 class DoctoresVista(mixins.ListModelMixin,  mixins.CreateModelMixin, generics.GenericAPIView):
     queryset = Doctor.objects.all()
     serializer_class = DoctorSerializer
+    ordering_fields = ['evaluacion_doc','disponibilidad','horario_atencion']
     
     def get(self, request):
-        filter_backends = [OrderingFilter]
-        ordering_fields = ('evaluacion_doc')
-        ordering = ['evaluacion_doc']
         return self.list(request)
     #Llamada a la BD los datos de la tabla Doctores
     def post(self, request):
