@@ -1,7 +1,46 @@
 {% extends "rest_framework/base.html" %}
 {% block branding %}
-    <a href="/" style="margin: 10 10 20px; font-weight: bold; color: white;font-size: xx-large; ">Clinica</a>
-    <a href="/api/doctor/" style="margin-left: 50%; font-weight: bold; color: white;font-size: larger; ">Doctores</a>
-    <a href="/api/paciente/" style="margin-left: 10%; font-weight: bold; color: white;font-size: larger; ">Pacientes</a>
-    <a href="/api/hora/" style="margin-left: 10%; font-weight: bold; color: white;font-size: larger; ">Horas</a>
+<style>
+    body {
+        background: linear-gradient(45deg, rgb(255, 170, 170), rgb(35, 219, 252));
+        background-repeat: repeat;
+    }
+    .navbar{
+        background: linear-gradient(to top, #30d6ff, #03509e)
+    }
+    .modal-content{
+        background: linear-gradient(45deg, rgb(255, 170, 170), rgb(35, 219, 252));
+    }
+    .breadcrumb{
+        background: none;
+        color: black;
+        font-size: medium;
+    }
+    .btn-default{
+        color: black;
+        background-color: rgb(245, 189, 87);
+        margin-right: 10px;
+    }
+    .btn-default:hover{
+        transform: scale(1.1);
+        color: white;
+        background-color: rgb(177, 125, 28);
+    }
+    .btn-primary:hover{
+        transform: scale(1.2);
+    }
+
+
+</style>
+<link rel="stylesheet" href="/api_clinica/static/css/framework.css">
+<a href="/" style="margin: 10 10 20px; font-weight: bold; color: white;font-size: xx-large; text-decoration: none;"
+    onmouseover="this.style.color='red'" onmouseout="this.style.color='white'">Clinica</a>
+<a href="/api/doctor/"
+    style="margin-left: 50%; font-weight: bold; color: white;font-size: larger; text-decoration: none;"
+    onmouseover="this.style.color='red'" onmouseout="this.style.color='white'">Doctores</a>
+<a href="/api/paciente/"
+    style="margin-left: 10%; font-weight: bold; color: white;font-size: larger; text-decoration: none;"
+    onmouseover="this.style.color='red'" onmouseout="this.style.color='white'">Pacientes</a>
+<a href="/api/hora/" style="margin-left: 10%; font-weight: bold; color: white;font-size: larger; text-decoration: none;"
+    onmouseover="this.style.color='red'" onmouseout="this.style.color='white'">Horas</a>
 {% endblock %}

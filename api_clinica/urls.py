@@ -25,3 +25,5 @@ urlpatterns = [
     path("api/hora/", apiViews.Ficha_atencionVista.as_view(), name="horaMixins"),
     path("api/hora/<int:pk>", apiViews.Ficha_Detalle.as_view(), name="horaPKMixins"),
 ]
+
+
