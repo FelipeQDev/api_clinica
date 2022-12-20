@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'api',
     'web_clinica',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -54,6 +55,10 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'api_clinica.urls'
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',
+                                'rest_framework.filters.OrderingFilter')
+}
 
 TEMPLATES = [
     {
@@ -81,8 +86,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': "webclinica",
-        'USER':"root",
-        'PASSWORD':"root",
+        'USER': "root",
+        'PASSWORD': "root",
     }
 }
 
@@ -123,7 +128,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-STATICFILES_DIRS=( os.path.join(BASE_DIR, 'api_clinica/static'), )
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'api_clinica/static'), )
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 

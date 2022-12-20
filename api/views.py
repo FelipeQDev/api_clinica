@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from rest_framework import mixins, generics
+from django_filters.rest_framework import DjangoFilterBackend,OrderingFilter
 
 # Create your views here.
 
@@ -38,10 +39,15 @@ class DoctoresVista(mixins.ListModelMixin,  mixins.CreateModelMixin, generics.Ge
     serializer_class = DoctorSerializer
     
     def get(self, request):
+        filter_backends = [OrderingFilter]
+        ordering_fields = ('evaluacion_doc')
+        ordering = ['evaluacion_doc']
         return self.list(request)
     #Llamada a la BD los datos de la tabla Doctores
     def post(self, request):
         return self.create(request)
+    
+    
     
 class DoctoresDetalle(mixins.RetrieveModelMixin, mixins.DestroyModelMixin, mixins.UpdateModelMixin, generics.GenericAPIView):
     queryset = Doctor.objects.all()
@@ -56,6 +62,7 @@ class DoctoresDetalle(mixins.RetrieveModelMixin, mixins.DestroyModelMixin, mixin
     # Borrar en la BD mediante la obtencion de la Primary Key, a un Doctores de la tabla
     def delete(self, request, pk):
         return self.destroy(request, pk)
+    
     
 
 # ficha

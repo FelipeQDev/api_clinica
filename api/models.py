@@ -15,9 +15,9 @@ class Paciente(models.Model):
 
     class Meta:
         db_table = "paciente"
-    
+
     def __str__(self):
-        return str(self.nombre +" "+ self.apellido)
+        return str(self.nombre + " " + self.apellido)
 
 
 class PacienteSerializer(serializers.ModelSerializer):
@@ -26,6 +26,8 @@ class PacienteSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 # Doctor
+
+
 class Doctor(models.Model):
     id = models.IntegerField(primary_key=True)
     nombre = models.CharField(max_length=40)
@@ -33,14 +35,15 @@ class Doctor(models.Model):
     especialidad = models.CharField(max_length=25)
     url_imagen = models.CharField(max_length=1000)
     horario_atencion = models.TimeField()
-    evaluacion_doc = models.DecimalField(decimal_places=1,max_digits=2)
+    evaluacion_doc = models.DecimalField(decimal_places=1, max_digits=2)
     disponibilidad = models.BooleanField()
 
     class Meta:
         db_table = "doctor"
         
+
     def __str__(self):
-        return str(self.nombre +" "+ self.apellido+" " +"("+self.especialidad+")" )
+        return str(self.nombre + " " + self.apellido+" " + "("+self.especialidad+")")
 
 
 class DoctorSerializer(serializers.ModelSerializer):

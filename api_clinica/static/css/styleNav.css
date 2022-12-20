@@ -3,6 +3,7 @@
 * {
 	font-family: 'Montserrat', sans-serif;
 	margin: 0px;
+	font-weight: bold;
 }
 body {
 	background: #f1fbff;
@@ -10,7 +11,7 @@ body {
 }
 
 #navbar{
-	background-color: #bcd2ff;
+	background: linear-gradient(to top, #30d6ff, #03509e);
 }
 .section-padding {
 	padding: 100px 0;
