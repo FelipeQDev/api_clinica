@@ -1,5 +1,6 @@
 from django.db import models
 from rest_framework import serializers
+from rest_framework.validators import UniqueTogetherValidator
 # Create your models here.
 
 # Paciente
@@ -40,7 +41,6 @@ class Doctor(models.Model):
 
     class Meta:
         db_table = "doctor"
-        
 
     def __str__(self):
         return str(self.nombre + " " + self.apellido+" " + "("+self.especialidad+")")
@@ -70,3 +70,18 @@ class Ficha_Serializer(serializers.ModelSerializer):
     class Meta:
         model = Ficha_Atencion
         fields = "__all__"
+        validators = [
+            UniqueTogetherValidator(
+                queryset=Ficha_Atencion.objects.all(),
+                fields=['fecha', 'doctor', 'paciente'],
+                message="Hora de Cita Ya ocupada"
+            ),
+            UniqueTogetherValidator(
+                queryset=Ficha_Atencion.objects.all(),
+                fields=['fecha', 'doctor'],
+                message="El doctor está Ocupado"),
+            UniqueTogetherValidator(
+                queryset=Ficha_Atencion.objects.all(),
+                fields=['fecha', 'paciente'],
+                message="El paciente ya tiene cita registrada en ese horario"
+            )]

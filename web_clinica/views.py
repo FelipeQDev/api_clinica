@@ -14,7 +14,7 @@ def pacientes(request):
 
 def doctores(request):
     doctores = Doctor.objects.all()
-    return render(request, "doctores.html", {"doctores": doctores})
+    return render(request,  "doctores.html", {"doctores": doctores})
 
 def fichas(request):
     fichas = Ficha_Atencion.objects.all()

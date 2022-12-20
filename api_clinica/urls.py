@@ -13,6 +13,8 @@ urlpatterns = [
     path("fichas/", v.fichas, name="fichas"),
     
     
+    
+    
     #mixins
     path("api/paciente/", apiViews.PacientesVista.as_view(), name="pacienteMixins"),
     path("api/paciente/<int:pk>", apiViews.PacienteDetalle.as_view(), name="pacientePKmixins"),
