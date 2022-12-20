@@ -8,6 +8,7 @@
     {% include "header.html" %}
     <link text="text/css" rel="stylesheet" href="{% static 'css/styleTable.css' %}">
     <link text="text/css" rel="stylesheet" href="{% static 'css/styleNav.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <title>Horas</title>
 </head>
 <body>
@@ -35,6 +36,7 @@
                                     <th>Prevision</th>
                                     <th>Fecha</th>
                                     <th>Precio</th>
+                                    <th>Accion</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -50,8 +52,7 @@
                                     <td><span style="color: green;">$ </span> {{f.precio_total}}</td>
                                     <td>
                                         <ul class="action-list">
-                                            <li><a href="#" data-tip="edit"><i class="fa fa-edit"></i></a></li>
-                                            <li><a href="#" data-tip="delete"><i class="fa fa-trash"></i></a></li>
+                                            <li><a href="{% url 'horaPKMixins' f.id  %}" data-tip="edit"><i class="fa fa-edit"></i></a></li>
                                         </ul>
                                     </td>
                                 </tr>
